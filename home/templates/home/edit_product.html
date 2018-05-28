@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+    <div class="col-md-8">
+        <h1>Edit Product</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form }}
+            <br>
+            <input class="btn btn-primary" type="submit" value="Submit"/>
+            <a style="text-decoration: none;" href="/home">
+            <button  type="button" class="btn btn-danger float-right">
+                Cancel
+            </button>
+        </a>
+        </form>
+    </div>
+    <div class="col-md-4">
+        <a style="text-decoration: none;" href="delete">
+            <button  type="button" class="btn btn-outline-danger btn-sm float-right">
+                Delete
+            </button>
+        </a>
+        <h2>DELETE Product</h2>
+    </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+    <div class="col-md-8">
+        <h1></h1>
+            <h1>{{ vproduct.name }}</h1>
+            {% if vproduct.image %}
+                <p><Img src="{{ vproduct.image.url }}" width="248"></p>
+            {% endif %}
+            <p>Announced by <b>{{ vproduct.user.get_full_name }}</b> on {{ vproduct.created }}</p>
+    </div>
+    <div class="col-md-4">
+        <br><br>
+        <h2>${{ vproduct.price }}</h2>
+        <p>{{ vproduct.description }}</p>
+        <a style="text-decoration: none;" href="#">
+            <button  type="button" class="btn btn-outline-success btn-lg float-right">
+                Buy!
+            </button>
+        </a>
+    </div>
+    </div>
+</div>
+
+{% endblock %}

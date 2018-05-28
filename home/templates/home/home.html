@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+    <div class="col-md-8">
+        <h1>Home</h1>
+        {% for product in products %}
+            <a href="{% url 'home:view_product' pk=product.pk %}"><h1>{{ product.name }}</h1></a>
+            {% if product.image %}
+                <p><Img src="{{ product.image.url }}" width="158"></p>
+            {% endif %}
+            <p>{{ product.description }}</p>
+            <h2>${{ product.price }}</h2>
+            <p>Announced by <b>{{ product.user.get_full_name }}</b> on {{ product.created }}</p>
+        {% endfor %}
+    </div>
+    <div class="col-md-4">
+        <a style="text-decoration: none;" href="new_product">
+            <button  type="button" class="btn btn-outline-success btn-sm float-right">
+                New Product
+            </button>
+        </a>
+        <h2>My Products</h2>
+        {% for product in userproducts %}
+            {{ product.name }} - 
+            <a href="{% url 'home:view_product' pk=product.pk %}">View</a> - 
+            <a href="{% url 'home:edit_product' pk=product.pk %}">Edit</a> <br>
+        {% endfor %}
+    </div>
+    </div>
+</div>
+
+{% endblock %}

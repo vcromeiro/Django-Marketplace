@@ -1,0 +1,2 @@
+user: ubuntu
+password: 2589victor

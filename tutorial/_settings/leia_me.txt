@@ -1,0 +1,29 @@
+Para utilizar esta estrutura de settings para o projeto django, é necessário
+atualizar a variável de ambiente DJANGO_SETTINGS_MODULE para o caminho:
+    meuProjeto.settings.dev
+            ou
+    meuProjeto.settings.prod
+    
+    No caso DESTE projeto:
+            tutorial.settings.dev OU .prod
+    
+Após isso será necessário realizar o comando:
+    python3 manage.py migrate
+    
+Isto irá fazer o django criar um novo aquivo de banco de dados, dentro da pasta
+"tutorial", no nosso caso.
+
+É necessário agora alterar a variavel BASE_DIR no arquivo de configuração.
+Importamos tudo para o arquivo base.py, portanto nele, altere de:
+
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    
+PARA:
+
+    BASE_DIR = 
+    os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    
+Alterando esta variável, nosso projeto volta a utilizar o arquivo de banco
+original. Podemos assim apagar o arquivo novo que ele criou, que estará vazio.
+
+SEGUIR: https://youtu.be/M5vkPEROk7o?list=PLw02n0FEB3E3VSHjyYMcFadtQORvl1Ssj&t=308
